@@ -22,7 +22,7 @@ namespace ConfigComparer
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            XDocument doc = XDocument.Load("ConfigComparer.exe.config");
+            XDocument doc = XDocument.Load(@"D:\Work\DF-V4Repository\Sources\DT.Everest.DocFlow.Web.Explorer\bin\DT.Everest.DocFlow.Web.Explorer.dll.config");
             var dict = new Dictionary<string, string>();
             if (doc.Root != null)
                 foreach (var xElement in doc.Root.Elements())
@@ -31,30 +31,21 @@ namespace ConfigComparer
                     {
                         foreach (var element in xElement.Elements())
                         {
-                            dict.Add(element.Attribute("key").Value, element.Attribute("value").Value);
+                            try
+                            {
+                                dict.Add(element.Attribute("key").Value, element.Attribute("value").Value);
+                            }
+                            catch (ArgumentException ae)
+                            {
+                                //MessageBox.Show(ae.Message + ": " + element.Attribute("key").Value);
+                            }
                         }
                     }
                 }
             dict = dict.OrderBy(o => o.Key).ToDictionary(o => o.Key, o => o.Value);
-            int yForLabels = 35;
             foreach (var setting in dict)
             {
-                var label = new Label();
-                label.AutoSize = true;
-                label.Name = "label" + setting.Key;
-                label.Text = setting.Key;
-                label.Location = new Point(15, yForLabels);
-
-                var textBox = new TextBox();
-                textBox.Enabled = false;
-                textBox.Text = setting.Value;
-                textBox.Name = "textBox" + setting.Value;
-                textBox.AutoSize = true;
-                textBox.Location = new Point(label.Location.X + label.Size.Width + 10, yForLabels - 3);
-                yForLabels += 20;
-
-                Controls.Add(label);
-                Controls.Add(textBox);
+                dataGridView1.Rows.Add(setting.Key, setting.Value);
             }
         }
     }
