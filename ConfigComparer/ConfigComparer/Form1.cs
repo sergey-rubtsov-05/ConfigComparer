@@ -8,6 +8,13 @@ namespace ConfigComparer
 {
     public partial class Form1 : Form
     {
+
+        Dictionary<string, string> _settingsDict1 = new Dictionary<string, string>();
+        Dictionary<string, string> repeatedSettingsDict1 = new Dictionary<string, string>();
+
+        Dictionary<string, string> _settingsDict2 = new Dictionary<string, string>();
+        Dictionary<string, string> repeatedSettingsDict2 = new Dictionary<string, string>();
+
         public Form1()
         {
             InitializeComponent();
@@ -27,6 +34,7 @@ namespace ConfigComparer
                     {
                         foreach (var element in xElement.Elements())
                         {
+                            element.Attribute("value").Value = "Check2";
                             try
                             {
                                 settingsDict.Add(element.Attribute("key").Value, element.Attribute("value").Value);
@@ -45,15 +53,14 @@ namespace ConfigComparer
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 XDocument doc = XDocument.Load(openFileDialog1.FileName);
-                var settingsDict = new Dictionary<string, string>();
-                var repeatedSettingsDict = new Dictionary<string, string>();
-                GetSettingsDict(doc, settingsDict, repeatedSettingsDict);
-                settingsDict = settingsDict.OrderBy(o => o.Key).ToDictionary(o => o.Key, o => o.Value);
-                foreach (var setting in settingsDict)
+                GetSettingsDict(doc, _settingsDict1, repeatedSettingsDict1);
+                doc.Save(openFileDialog1.FileName);
+                _settingsDict1 = _settingsDict1.OrderBy(o => o.Key).ToDictionary(o => o.Key, o => o.Value);
+                foreach (var setting in _settingsDict1)
                 {
                     dataGridViewSettings1.Rows.Add(setting.Key, setting.Value);
                 }
-                foreach (var repeatSetting in repeatedSettingsDict)
+                foreach (var repeatSetting in repeatedSettingsDict1)
                 {
                     dataGridViewRepeatedSettings1.Rows.Add(repeatSetting.Key, repeatSetting.Value);
                 }
@@ -65,15 +72,13 @@ namespace ConfigComparer
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 XDocument doc = XDocument.Load(openFileDialog1.FileName);
-                var settingsDict = new Dictionary<string, string>();
-                var repeatedSettingsDict = new Dictionary<string, string>();
-                GetSettingsDict(doc, settingsDict, repeatedSettingsDict);
-                settingsDict = settingsDict.OrderBy(o => o.Key).ToDictionary(o => o.Key, o => o.Value);
-                foreach (var setting in settingsDict)
+                GetSettingsDict(doc, _settingsDict2, repeatedSettingsDict2);
+                _settingsDict2 = _settingsDict2.OrderBy(o => o.Key).ToDictionary(o => o.Key, o => o.Value);
+                foreach (var setting in _settingsDict2)
                 {
                     dataGridViewSettings2.Rows.Add(setting.Key, setting.Value);
                 }
-                foreach (var repeatSetting in repeatedSettingsDict)
+                foreach (var repeatSetting in repeatedSettingsDict2)
                 {
                     dataGridViewRepeatedSettings2.Rows.Add(repeatSetting.Key, repeatSetting.Value);
                 }
