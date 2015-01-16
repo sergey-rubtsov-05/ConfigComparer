@@ -94,6 +94,7 @@ namespace ConfigComparer
         private void button1_Click(object sender, EventArgs e)
         {
             var settingsDiff = new Dictionary<string, string>();
+            var notExistSettings = new Dictionary<string, string>();
             foreach (var setting in _settingsDict1)
             {
                 if (_settingsDict2.ContainsKey(setting.Key))
@@ -102,12 +103,16 @@ namespace ConfigComparer
                     if (_settingsDict2.TryGetValue(setting.Key, out value))
                     {
                         if (value != setting.Value)
+                        {
                             settingsDiff.Add(setting.Key, setting.Value);
+                            notExistSettings.Add(setting.Key, setting.Value);
+                        }
                     }
                 }
                 else
                 {
                     settingsDiff.Add(setting.Key, setting.Value);
+                    notExistSettings.Add(setting.Key, setting.Value);
                 }
             }
             if (doc2.Root != null)
@@ -122,8 +127,14 @@ namespace ConfigComparer
                                 if (element.Attribute("key").Value == setting.Key)
                                 {
                                     element.Attribute("value").SetValue(setting.Value);
+                                    notExistSettings.Remove(setting.Key);
                                 }
                             }
+                        }
+                        foreach (var setting in notExistSettings)
+                        {
+                            xElement.Add(new XElement("add", new XAttribute("key", setting.Key),
+                                new XAttribute("value", setting.Value)));
                         }
                     }
                 }
