@@ -49,6 +49,8 @@
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.selectSecondSettingsButton = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSettings1)).BeginInit();
@@ -166,7 +168,7 @@
             // 
             this.tabControl2.Controls.Add(this.tabPage3);
             this.tabControl2.Controls.Add(this.tabPage4);
-            this.tabControl2.Location = new System.Drawing.Point(618, 33);
+            this.tabControl2.Location = new System.Drawing.Point(665, 33);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
             this.tabControl2.Size = new System.Drawing.Size(600, 680);
@@ -250,7 +252,7 @@
             // 
             // selectSecondSettingsButton
             // 
-            this.selectSecondSettingsButton.Location = new System.Drawing.Point(618, 4);
+            this.selectSecondSettingsButton.Location = new System.Drawing.Point(665, 4);
             this.selectSecondSettingsButton.Name = "selectSecondSettingsButton";
             this.selectSecondSettingsButton.Size = new System.Drawing.Size(75, 23);
             this.selectSecondSettingsButton.TabIndex = 5;
@@ -258,11 +260,32 @@
             this.selectSecondSettingsButton.UseVisualStyleBackColor = true;
             this.selectSecondSettingsButton.Click += new System.EventHandler(this.selectSecondSettingsButton_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(618, 196);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(41, 23);
+            this.button1.TabIndex = 6;
+            this.button1.Text = ">>";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(618, 225);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(41, 23);
+            this.button2.TabIndex = 7;
+            this.button2.Text = "<<";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1245, 721);
+            this.ClientSize = new System.Drawing.Size(1297, 721);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.selectSecondSettingsButton);
             this.Controls.Add(this.tabControl2);
             this.Controls.Add(this.selectFirstSettingsButton);
@@ -307,6 +330,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.Button selectSecondSettingsButton;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
 
 
     }
