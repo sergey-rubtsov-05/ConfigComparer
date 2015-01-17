@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using ConfigComparer.Properties;
 
 namespace ConfigComparer
 {
@@ -22,7 +23,7 @@ namespace ConfigComparer
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private Settings GetSettingsDict(XDocument doc)
@@ -94,6 +95,11 @@ namespace ConfigComparer
         {
             var settingsDiff = new Dictionary<string, string>();
             var notExistSettings = new Dictionary<string, string>();
+            if (_settings1.MainSettings == null)
+            {
+                MessageBox.Show(Resources.firstSettingsFileNotSelect);
+                return;
+            }
             foreach (var setting in _settings1.MainSettings)
             {
                 if (_settings2.MainSettings.ContainsKey(setting.Key))
