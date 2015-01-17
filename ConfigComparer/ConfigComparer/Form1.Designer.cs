@@ -49,7 +49,7 @@
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.selectSecondSettingsButton = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.fromOneToTwoFileButton = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -260,15 +260,15 @@
             this.selectSecondSettingsButton.UseVisualStyleBackColor = true;
             this.selectSecondSettingsButton.Click += new System.EventHandler(this.selectSecondSettingsButton_Click);
             // 
-            // button1
+            // fromOneToTwoFileButton
             // 
-            this.button1.Location = new System.Drawing.Point(618, 196);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(41, 23);
-            this.button1.TabIndex = 6;
-            this.button1.Text = ">>";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.fromOneToTwoFileButton.Location = new System.Drawing.Point(618, 196);
+            this.fromOneToTwoFileButton.Name = "fromOneToTwoFileButton";
+            this.fromOneToTwoFileButton.Size = new System.Drawing.Size(41, 23);
+            this.fromOneToTwoFileButton.TabIndex = 6;
+            this.fromOneToTwoFileButton.Text = ">>";
+            this.fromOneToTwoFileButton.UseVisualStyleBackColor = true;
+            this.fromOneToTwoFileButton.Click += new System.EventHandler(this.fromOneToTwoFileButton_Click);
             // 
             // button2
             // 
@@ -285,7 +285,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1297, 721);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.fromOneToTwoFileButton);
             this.Controls.Add(this.selectSecondSettingsButton);
             this.Controls.Add(this.tabControl2);
             this.Controls.Add(this.selectFirstSettingsButton);
@@ -330,7 +330,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.Button selectSecondSettingsButton;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button fromOneToTwoFileButton;
         private System.Windows.Forms.Button button2;
 
 
