@@ -16,9 +16,12 @@ namespace ConfigComparer
         private Settings _settings1;
         private Settings _settings2;
 
+        private readonly List<string> _untouchableSettings; 
+
         public Form1()
         {
             InitializeComponent();
+            _untouchableSettings = new List<string> {"Key1"};
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -42,7 +45,8 @@ namespace ConfigComparer
                         {
                             try
                             {
-                                settings.MainSettings.Add(element.Attribute("key").Value, element.Attribute("value").Value);
+                                if (!_untouchableSettings.Contains(element.Attribute("key").Value))
+                                    settings.MainSettings.Add(element.Attribute("key").Value, element.Attribute("value").Value);
                             }
                             catch (ArgumentException)
                             {
