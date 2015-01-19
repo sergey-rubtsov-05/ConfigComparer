@@ -21,12 +21,15 @@ namespace ConfigComparer
         public Form1()
         {
             InitializeComponent();
-            _untouchableSettings = new List<string> {"Key1"};
+            _untouchableSettings = new List<string> {"Key1", "Key2"};
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            foreach (var untouchableSetting in _untouchableSettings)
+            {
+                listBox1.Items.Add(untouchableSetting);
+            }
         }
 
         private Settings GetSettingsDict(XDocument doc)
@@ -36,6 +39,11 @@ namespace ConfigComparer
                 MainSettings = new Dictionary<string, string>(),
                 RepeatedSettings = new Dictionary<string, string>()
             };
+            _untouchableSettings.Clear();
+            foreach (var item in listBox1.Items)
+            {
+                _untouchableSettings.Add(item.ToString());
+            }
             if (doc.Root != null)
                 foreach (var xElement in doc.Root.Elements())
                 {
@@ -156,6 +164,27 @@ namespace ConfigComparer
         {
             public Dictionary<string, string> MainSettings;
             public Dictionary<string, string> RepeatedSettings;
+        }
+
+        private void listBox1_DoubleClick(object sender, EventArgs e)
+        {
+            textBox1.Focus();
+        }
+
+        private void textBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                listBox1.Items.Add(textBox1.Text);
+            }
+        }
+
+        private void listBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete)
+            {
+                listBox1.Items.Remove(listBox1.SelectedItem);
+            }
         }
     }
 }
