@@ -105,14 +105,29 @@ namespace ConfigComparer
 
         private void fromOneToTwoFileButton_Click(object sender, EventArgs e)
         {
+            Dictionary<string, string> mainSettings;
+            var sel = dataGridViewSettings1.SelectedRows;
+            if (sel.Count != 0)
+            {
+                mainSettings = new Dictionary<string, string>();
+                foreach (DataGridViewRow dataGridViewRow in sel)
+                {
+                    mainSettings.Add(dataGridViewRow.Cells[0].Value.ToString(),
+                        dataGridViewRow.Cells[1].Value.ToString());
+                }
+            }
+            else
+            {
+                mainSettings = _settings1.MainSettings;
+            }
             var settingsDiff = new Dictionary<string, string>();
             var notExistSettings = new Dictionary<string, string>();
-            if (_settings1.MainSettings == null)
+            if (mainSettings == null)
             {
                 MessageBox.Show(Resources.firstSettingsFileNotSelect);
                 return;
             }
-            foreach (var setting in _settings1.MainSettings)
+            foreach (var setting in mainSettings)
             {
                 if (_settings2.MainSettings.ContainsKey(setting.Key))
                 {
