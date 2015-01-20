@@ -66,6 +66,12 @@ namespace ConfigComparer
             return settings;
         }
 
+        private Settings GetSettingsDict(string pathToFile)
+        {
+            var doc = XDocument.Load(pathToFile);
+            return GetSettingsDict(doc);
+        }
+
         private void selectFirstSettingsButton_Click(object sender, EventArgs e)
         {
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
@@ -199,6 +205,34 @@ namespace ConfigComparer
             if (e.KeyCode == Keys.Delete)
             {
                 listBox1.Items.Remove(listBox1.SelectedItem);
+            }
+        }
+
+        private void refreshSettings1_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(_pathToFileOne))
+            {
+                _settings1 = GetSettingsDict(_pathToFileOne);
+                FillSettingsGrids(dataGridViewSettings1, dataGridViewRepeatedSettings1, _settings1);
+            }
+            else
+            {
+                MessageBox.Show(Resources.needSelectSettingsFile, Resources.settingsFileNotSelected,
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void refreshSettings2_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(_pathToFileTwo))
+            {
+                _settings2 = GetSettingsDict(_pathToFileTwo);
+                FillSettingsGrids(dataGridViewSettings2, dataGridViewRepeatedSettings2, _settings2);
+            }
+            else
+            {
+                MessageBox.Show(Resources.needSelectSettingsFile, Resources.settingsFileNotSelected,
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }

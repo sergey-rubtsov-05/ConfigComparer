@@ -168,4 +168,25 @@
   <metadata name="dataGridViewTextBoxColumn6.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="refreshSettings1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAADwSURBVDhPrZNREYMwEESRUAmVgAQ+IqASIqEWUFAJSEACEpBQCUho78EeTRgCfJSZHTLJ5d1e
+        cqmqwhdCqE2NqxSXzVvwXZrs/9mIudZ024VpcWDRxtHU6c/4ZXLoSJIVAtHUK9t4UBJxQHEGZHFig3dq
+        9azWBNI6AHJa78/eDk2OSTo5gJMGQJ2MDwFyTSx7GkpwwPPMvq/bnocA8S8AGgY73RUHOvRhLUE1ccdo
+        v0kS8ubWlqQ2SYfhoj9zYTGePXet5pghR07UB7iN23dAP9BhQAig63CGGM+bdAN10ak2ZN0pKHOXr5pz
+        SZ9zMeMXHEGrzaacvGwAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="refreshSettings2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAADwSURBVDhPrZNREYMwEESRUAmVgAQ+IqASIqEWUFAJSEACEpBQCUho78EeTRgCfJSZHTLJ5d1e
+        cqmqwhdCqE2NqxSXzVvwXZrs/9mIudZ024VpcWDRxtHU6c/4ZXLoSJIVAtHUK9t4UBJxQHEGZHFig3dq
+        9azWBNI6AHJa78/eDk2OSTo5gJMGQJ2MDwFyTSx7GkpwwPPMvq/bnocA8S8AGgY73RUHOvRhLUE1ccdo
+        v0kS8ubWlqQ2SYfhoj9zYTGePXet5pghR07UB7iN23dAP9BhQAig63CGGM+bdAN10ak2ZN0pKHOXr5pz
+        SZ9zMeMXHEGrzaacvGwAAAAASUVORK5CYII=
+</value>
+  </data>
 </root>

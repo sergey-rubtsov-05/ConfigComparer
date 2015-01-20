@@ -117,4 +117,10 @@
   <data name="firstSettingsFileNotSelect" xml:space="preserve">
     <value>Первый файл настроек не выбран!</value>
   </data>
+  <data name="needSelectSettingsFile" xml:space="preserve">
+    <value>Сначала необходимо выбрать файл настроек.</value>
+  </data>
+  <data name="settingsFileNotSelected" xml:space="preserve">
+    <value>Файл настроек не выбран</value>
+  </data>
 </root>

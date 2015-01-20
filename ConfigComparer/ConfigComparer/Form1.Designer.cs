@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.dataGridViewSettings1 = new System.Windows.Forms.DataGridView();
@@ -54,6 +55,8 @@
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.refreshSettings1 = new System.Windows.Forms.Button();
+            this.refreshSettings2 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSettings1)).BeginInit();
@@ -104,7 +107,7 @@
             this.Column1.HeaderText = "Key";
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
-            this.Column1.Width = 50;
+            this.Column1.Width = 49;
             // 
             // Column2
             // 
@@ -112,7 +115,7 @@
             this.Column2.HeaderText = "Value";
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
-            this.Column2.Width = 59;
+            this.Column2.Width = 61;
             // 
             // tabPage2
             // 
@@ -142,7 +145,7 @@
             this.dataGridViewTextBoxColumn1.HeaderText = "Key";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 50;
+            this.dataGridViewTextBoxColumn1.Width = 49;
             // 
             // dataGridViewTextBoxColumn2
             // 
@@ -150,7 +153,7 @@
             this.dataGridViewTextBoxColumn2.HeaderText = "Value";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Width = 59;
+            this.dataGridViewTextBoxColumn2.Width = 61;
             // 
             // openFileDialog1
             // 
@@ -205,7 +208,7 @@
             this.dataGridViewTextBoxColumn3.HeaderText = "Key";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Width = 50;
+            this.dataGridViewTextBoxColumn3.Width = 49;
             // 
             // dataGridViewTextBoxColumn4
             // 
@@ -213,7 +216,7 @@
             this.dataGridViewTextBoxColumn4.HeaderText = "Value";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.Width = 59;
+            this.dataGridViewTextBoxColumn4.Width = 61;
             // 
             // tabPage4
             // 
@@ -243,7 +246,7 @@
             this.dataGridViewTextBoxColumn5.HeaderText = "Key";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            this.dataGridViewTextBoxColumn5.Width = 50;
+            this.dataGridViewTextBoxColumn5.Width = 49;
             // 
             // dataGridViewTextBoxColumn6
             // 
@@ -251,7 +254,7 @@
             this.dataGridViewTextBoxColumn6.HeaderText = "Value";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            this.dataGridViewTextBoxColumn6.Width = 59;
+            this.dataGridViewTextBoxColumn6.Width = 61;
             // 
             // selectSecondSettingsButton
             // 
@@ -296,7 +299,7 @@
             // 
             this.textBox1.Location = new System.Drawing.Point(1284, 260);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(175, 20);
+            this.textBox1.Size = new System.Drawing.Size(175, 22);
             this.textBox1.TabIndex = 9;
             this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
             // 
@@ -305,15 +308,37 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(1281, 39);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(155, 13);
+            this.label1.Size = new System.Drawing.Size(160, 13);
             this.label1.TabIndex = 10;
             this.label1.Text = "Неиспользуемые настройки:";
+            // 
+            // refreshSettings1
+            // 
+            this.refreshSettings1.Image = ((System.Drawing.Image)(resources.GetObject("refreshSettings1.Image")));
+            this.refreshSettings1.Location = new System.Drawing.Point(93, 4);
+            this.refreshSettings1.Name = "refreshSettings1";
+            this.refreshSettings1.Size = new System.Drawing.Size(24, 24);
+            this.refreshSettings1.TabIndex = 11;
+            this.refreshSettings1.UseVisualStyleBackColor = true;
+            this.refreshSettings1.Click += new System.EventHandler(this.refreshSettings1_Click);
+            // 
+            // refreshSettings2
+            // 
+            this.refreshSettings2.Image = ((System.Drawing.Image)(resources.GetObject("refreshSettings2.Image")));
+            this.refreshSettings2.Location = new System.Drawing.Point(746, 4);
+            this.refreshSettings2.Name = "refreshSettings2";
+            this.refreshSettings2.Size = new System.Drawing.Size(24, 24);
+            this.refreshSettings2.TabIndex = 12;
+            this.refreshSettings2.UseVisualStyleBackColor = true;
+            this.refreshSettings2.Click += new System.EventHandler(this.refreshSettings2_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1468, 721);
+            this.Controls.Add(this.refreshSettings2);
+            this.Controls.Add(this.refreshSettings1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.listBox1);
@@ -369,6 +394,8 @@
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button refreshSettings1;
+        private System.Windows.Forms.Button refreshSettings2;
 
 
     }

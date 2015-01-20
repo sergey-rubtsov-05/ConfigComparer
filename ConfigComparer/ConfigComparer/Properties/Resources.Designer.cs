@@ -68,5 +68,23 @@ namespace ConfigComparer.Properties {
                 return ResourceManager.GetString("firstSettingsFileNotSelect", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Сначала необходимо выбрать файл настроек..
+        /// </summary>
+        internal static string needSelectSettingsFile {
+            get {
+                return ResourceManager.GetString("needSelectSettingsFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Файл настроек не выбран.
+        /// </summary>
+        internal static string settingsFileNotSelected {
+            get {
+                return ResourceManager.GetString("settingsFileNotSelected", resourceCulture);
+            }
+        }
     }
 }
