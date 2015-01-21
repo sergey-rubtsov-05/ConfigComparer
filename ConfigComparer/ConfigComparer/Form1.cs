@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Windows.Forms;
 using System.Xml.Linq;
@@ -11,6 +12,14 @@ namespace ConfigComparer
     {
 
         private string _pathToFileOne;
+        private string PathToFileOne
+        {
+            set
+            {
+                _pathToFileOne = value;
+                label2.Text = value;
+            }
+        }
         private string _pathToFileTwo;
 
         private Settings _settings1;
@@ -21,7 +30,13 @@ namespace ConfigComparer
         public Form1()
         {
             InitializeComponent();
-            _untouchableSettings = new List<string> {"Key1", "Key2"};
+            var untouchableSettings = ConfigurationManager.AppSettings["untouchableSettings"];
+            var untouchableSettingsParts = untouchableSettings.Split(',');
+            _untouchableSettings = new List<string>();
+            foreach (string untouchableSettingsPart in untouchableSettingsParts)
+            {
+                _untouchableSettings.Add(untouchableSettingsPart.Trim());
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -76,7 +91,7 @@ namespace ConfigComparer
         {
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                _pathToFileOne = openFileDialog1.FileName;
+                PathToFileOne = openFileDialog1.FileName;
                 var doc = XDocument.Load(_pathToFileOne);
                 _settings1 = GetSettingsDict(doc);
                 FillSettingsGrids(dataGridViewSettings1, dataGridViewRepeatedSettings1, _settings1);
@@ -131,6 +146,11 @@ namespace ConfigComparer
             if (mainSettings == null)
             {
                 MessageBox.Show(Resources.firstSettingsFileNotSelect);
+                return;
+            }
+            if (_settings2.MainSettings == null)
+            {
+                MessageBox.Show(Resources.SecondSettingsFileNotSelected);
                 return;
             }
             foreach (var setting in mainSettings)

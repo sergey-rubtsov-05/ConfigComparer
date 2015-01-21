@@ -57,6 +57,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.refreshSettings1 = new System.Windows.Forms.Button();
             this.refreshSettings2 = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.LinkLabel();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSettings1)).BeginInit();
@@ -332,11 +333,20 @@
             this.refreshSettings2.UseVisualStyleBackColor = true;
             this.refreshSettings2.Click += new System.EventHandler(this.refreshSettings2_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(123, 14);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(0, 13);
+            this.label2.TabIndex = 13;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1468, 721);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.refreshSettings2);
             this.Controls.Add(this.refreshSettings1);
             this.Controls.Add(this.label1);
@@ -396,6 +406,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button refreshSettings1;
         private System.Windows.Forms.Button refreshSettings2;
+        private System.Windows.Forms.LinkLabel label2;
 
 
     }

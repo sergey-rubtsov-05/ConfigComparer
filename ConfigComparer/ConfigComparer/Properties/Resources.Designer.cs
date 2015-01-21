@@ -79,6 +79,15 @@ namespace ConfigComparer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Второй файл настроек не выбран.
+        /// </summary>
+        internal static string SecondSettingsFileNotSelected {
+            get {
+                return ResourceManager.GetString("SecondSettingsFileNotSelected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Файл настроек не выбран.
         /// </summary>
         internal static string settingsFileNotSelected {

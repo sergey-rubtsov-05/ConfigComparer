@@ -123,4 +123,7 @@
   <data name="settingsFileNotSelected" xml:space="preserve">
     <value>Файл настроек не выбран</value>
   </data>
+  <data name="SecondSettingsFileNotSelected" xml:space="preserve">
+    <value>Второй файл настроек не выбран</value>
+  </data>
 </root>
