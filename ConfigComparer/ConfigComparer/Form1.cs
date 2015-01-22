@@ -14,18 +14,29 @@ namespace ConfigComparer
         private string _pathToFileOne;
         private string PathToFileOne
         {
+            get { return _pathToFileOne; }
             set
             {
                 _pathToFileOne = value;
                 label2.Text = value;
             }
         }
+
         private string _pathToFileTwo;
+        private string PathToFileTwo
+        {
+            get { return _pathToFileTwo; }
+            set
+            {
+                _pathToFileTwo = value;
+                linkLabel1.Text = value;
+            }
+        }
 
         private Settings _settings1;
         private Settings _settings2;
 
-        private readonly List<string> _untouchableSettings; 
+        private readonly List<string> _untouchableSettings;
 
         public Form1()
         {
@@ -92,7 +103,7 @@ namespace ConfigComparer
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 PathToFileOne = openFileDialog1.FileName;
-                var doc = XDocument.Load(_pathToFileOne);
+                var doc = XDocument.Load(PathToFileOne);
                 _settings1 = GetSettingsDict(doc);
                 FillSettingsGrids(dataGridViewSettings1, dataGridViewRepeatedSettings1, _settings1);
             }
@@ -117,8 +128,8 @@ namespace ConfigComparer
         {
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                _pathToFileTwo = openFileDialog1.FileName;
-                var doc = XDocument.Load(_pathToFileTwo);
+                PathToFileTwo = openFileDialog1.FileName;
+                var doc = XDocument.Load(PathToFileTwo);
                 _settings2 = GetSettingsDict(doc);
                 FillSettingsGrids(dataGridViewSettings2, dataGridViewRepeatedSettings2, _settings2);
             }
@@ -173,7 +184,7 @@ namespace ConfigComparer
                     notExistSettings.Add(setting.Key, setting.Value);
                 }
             }
-            var doc = XDocument.Load(_pathToFileTwo);
+            var doc = XDocument.Load(PathToFileTwo);
             if (doc.Root != null)
                 foreach (var xElement in doc.Root.Elements())
                 {
@@ -197,7 +208,7 @@ namespace ConfigComparer
                         }
                     }
                 }
-            doc.Save(_pathToFileTwo);
+            doc.Save(PathToFileTwo);
             _settings2 = GetSettingsDict(doc);
             FillSettingsGrids(dataGridViewSettings2, dataGridViewRepeatedSettings2, _settings2);
         }
@@ -230,9 +241,9 @@ namespace ConfigComparer
 
         private void refreshSettings1_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(_pathToFileOne))
+            if (!string.IsNullOrEmpty(PathToFileOne))
             {
-                _settings1 = GetSettingsDict(_pathToFileOne);
+                _settings1 = GetSettingsDict(PathToFileOne);
                 FillSettingsGrids(dataGridViewSettings1, dataGridViewRepeatedSettings1, _settings1);
             }
             else
@@ -244,9 +255,9 @@ namespace ConfigComparer
 
         private void refreshSettings2_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(_pathToFileTwo))
+            if (!string.IsNullOrEmpty(PathToFileTwo))
             {
-                _settings2 = GetSettingsDict(_pathToFileTwo);
+                _settings2 = GetSettingsDict(PathToFileTwo);
                 FillSettingsGrids(dataGridViewSettings2, dataGridViewRepeatedSettings2, _settings2);
             }
             else

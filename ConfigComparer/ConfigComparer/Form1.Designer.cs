@@ -58,6 +58,7 @@
             this.refreshSettings1 = new System.Windows.Forms.Button();
             this.refreshSettings2 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.LinkLabel();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSettings1)).BeginInit();
@@ -108,7 +109,7 @@
             this.Column1.HeaderText = "Key";
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
-            this.Column1.Width = 49;
+            this.Column1.Width = 50;
             // 
             // Column2
             // 
@@ -116,7 +117,7 @@
             this.Column2.HeaderText = "Value";
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
-            this.Column2.Width = 61;
+            this.Column2.Width = 59;
             // 
             // tabPage2
             // 
@@ -146,7 +147,7 @@
             this.dataGridViewTextBoxColumn1.HeaderText = "Key";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 49;
+            this.dataGridViewTextBoxColumn1.Width = 50;
             // 
             // dataGridViewTextBoxColumn2
             // 
@@ -154,7 +155,7 @@
             this.dataGridViewTextBoxColumn2.HeaderText = "Value";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Width = 61;
+            this.dataGridViewTextBoxColumn2.Width = 59;
             // 
             // openFileDialog1
             // 
@@ -209,7 +210,7 @@
             this.dataGridViewTextBoxColumn3.HeaderText = "Key";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Width = 49;
+            this.dataGridViewTextBoxColumn3.Width = 50;
             // 
             // dataGridViewTextBoxColumn4
             // 
@@ -217,7 +218,7 @@
             this.dataGridViewTextBoxColumn4.HeaderText = "Value";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.Width = 61;
+            this.dataGridViewTextBoxColumn4.Width = 59;
             // 
             // tabPage4
             // 
@@ -247,7 +248,7 @@
             this.dataGridViewTextBoxColumn5.HeaderText = "Key";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            this.dataGridViewTextBoxColumn5.Width = 49;
+            this.dataGridViewTextBoxColumn5.Width = 50;
             // 
             // dataGridViewTextBoxColumn6
             // 
@@ -255,7 +256,7 @@
             this.dataGridViewTextBoxColumn6.HeaderText = "Value";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            this.dataGridViewTextBoxColumn6.Width = 61;
+            this.dataGridViewTextBoxColumn6.Width = 59;
             // 
             // selectSecondSettingsButton
             // 
@@ -300,7 +301,7 @@
             // 
             this.textBox1.Location = new System.Drawing.Point(1284, 260);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(175, 22);
+            this.textBox1.Size = new System.Drawing.Size(175, 20);
             this.textBox1.TabIndex = 9;
             this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
             // 
@@ -309,7 +310,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(1281, 39);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(160, 13);
+            this.label1.Size = new System.Drawing.Size(155, 13);
             this.label1.TabIndex = 10;
             this.label1.Text = "Неиспользуемые настройки:";
             // 
@@ -341,11 +342,20 @@
             this.label2.Size = new System.Drawing.Size(0, 13);
             this.label2.TabIndex = 13;
             // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(776, 14);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(0, 13);
+            this.linkLabel1.TabIndex = 14;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1468, 721);
+            this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.refreshSettings2);
             this.Controls.Add(this.refreshSettings1);
@@ -407,6 +417,7 @@
         private System.Windows.Forms.Button refreshSettings1;
         private System.Windows.Forms.Button refreshSettings2;
         private System.Windows.Forms.LinkLabel label2;
+        private System.Windows.Forms.LinkLabel linkLabel1;
 
 
     }
