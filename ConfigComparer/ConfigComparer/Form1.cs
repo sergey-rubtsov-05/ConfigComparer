@@ -123,7 +123,14 @@ namespace ConfigComparer
             {
                 gridForRepeatedSettings.Rows.Add(repeatSetting.Key, repeatSetting.Value);
             }
-            gridForSettings.Rows[0].Cells[0].Style.BackColor = Color.Aquamarine;
+            foreach (DataGridViewRow row in gridForSettings.Rows)
+            {
+                foreach (DataGridViewCell cell in row.Cells)
+                {
+                    cell.Style.BackColor = Color.White;
+                }
+            }
+            //gridForSettings.Rows[0].Cells[0].Style.BackColor = Color.Aquamarine;
         }
 
         private void selectSecondSettingsButton_Click(object sender, EventArgs e)
@@ -164,7 +171,7 @@ namespace ConfigComparer
                 MessageBox.Show(Resources.SecondSettingsFileNotSelected);
                 return;
             }
-            var settingsDiff = GetSettingsDifferent(mainSettings);
+            var settingsDiff = GetSettingsDifferent(mainSettings, _settings2.MainSettings);
             Dictionary<string, string> notExistSettings = settingsDiff.ToDictionary(o => o.Key, o => o.Value);
             var doc = XDocument.Load(PathToFileTwo);
             if (doc.Root != null)
@@ -195,15 +202,15 @@ namespace ConfigComparer
             FillSettingsGrids(dataGridViewSettings2, dataGridViewRepeatedSettings2, _settings2);
         }
 
-        private Dictionary<string, string> GetSettingsDifferent(Dictionary<string, string> mainSettings)
+        private Dictionary<string, string> GetSettingsDifferent(Dictionary<string, string> mainSettings1, Dictionary<string, string> mainSettings2)
         {
             var settingsDiff = new Dictionary<string, string>();
-            foreach (var setting in mainSettings)
+            foreach (var setting in mainSettings1)
             {
-                if (_settings2.MainSettings.ContainsKey(setting.Key))
+                if (mainSettings2.ContainsKey(setting.Key))
                 {
                     string value;
-                    if (_settings2.MainSettings.TryGetValue(setting.Key, out value))
+                    if (mainSettings2.TryGetValue(setting.Key, out value))
                     {
                         if (value != setting.Value)
                         {
@@ -271,6 +278,22 @@ namespace ConfigComparer
             {
                 MessageBox.Show(Resources.needSelectSettingsFile, Resources.settingsFileNotSelected,
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void highlightDifferentSettingsButton_Click(object sender, EventArgs e)
+        {
+            var diffSettings = GetSettingsDifferent(_settings1.MainSettings, _settings2.MainSettings);
+            foreach (DataGridViewRow row in dataGridViewSettings1.Rows)
+            {
+                var settingName = row.Cells[0].Value == null ? string.Empty : row.Cells[0].Value.ToString();
+                if (diffSettings.ContainsKey(settingName))
+                {
+                    foreach (DataGridViewCell cell in row.Cells)
+                    {
+                        cell.Style.BackColor = Color.Aquamarine;
+                    }
+                }
             }
         }
     }

@@ -59,6 +59,7 @@
             this.refreshSettings2 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.LinkLabel();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.highlightDifferentSettingsButton = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSettings1)).BeginInit();
@@ -350,11 +351,22 @@
             this.linkLabel1.Size = new System.Drawing.Size(0, 13);
             this.linkLabel1.TabIndex = 14;
             // 
+            // highlightDifferentSettingsButton
+            // 
+            this.highlightDifferentSettingsButton.Location = new System.Drawing.Point(618, 167);
+            this.highlightDifferentSettingsButton.Name = "highlightDifferentSettingsButton";
+            this.highlightDifferentSettingsButton.Size = new System.Drawing.Size(41, 23);
+            this.highlightDifferentSettingsButton.TabIndex = 15;
+            this.highlightDifferentSettingsButton.Text = "=";
+            this.highlightDifferentSettingsButton.UseVisualStyleBackColor = true;
+            this.highlightDifferentSettingsButton.Click += new System.EventHandler(this.highlightDifferentSettingsButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1468, 721);
+            this.Controls.Add(this.highlightDifferentSettingsButton);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.refreshSettings2);
@@ -418,6 +430,7 @@
         private System.Windows.Forms.Button refreshSettings2;
         private System.Windows.Forms.LinkLabel label2;
         private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.Button highlightDifferentSettingsButton;
 
 
     }
