@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using System.Xml.Linq;
@@ -122,6 +123,7 @@ namespace ConfigComparer
             {
                 gridForRepeatedSettings.Rows.Add(repeatSetting.Key, repeatSetting.Value);
             }
+            gridForSettings.Rows[0].Cells[0].Style.BackColor = Color.Aquamarine;
         }
 
         private void selectSecondSettingsButton_Click(object sender, EventArgs e)
@@ -152,8 +154,6 @@ namespace ConfigComparer
             {
                 mainSettings = _settings1.MainSettings;
             }
-            var settingsDiff = new Dictionary<string, string>();
-            var notExistSettings = new Dictionary<string, string>();
             if (mainSettings == null)
             {
                 MessageBox.Show(Resources.firstSettingsFileNotSelect);
@@ -164,26 +164,8 @@ namespace ConfigComparer
                 MessageBox.Show(Resources.SecondSettingsFileNotSelected);
                 return;
             }
-            foreach (var setting in mainSettings)
-            {
-                if (_settings2.MainSettings.ContainsKey(setting.Key))
-                {
-                    string value;
-                    if (_settings2.MainSettings.TryGetValue(setting.Key, out value))
-                    {
-                        if (value != setting.Value)
-                        {
-                            settingsDiff.Add(setting.Key, setting.Value);
-                            notExistSettings.Add(setting.Key, setting.Value);
-                        }
-                    }
-                }
-                else
-                {
-                    settingsDiff.Add(setting.Key, setting.Value);
-                    notExistSettings.Add(setting.Key, setting.Value);
-                }
-            }
+            var settingsDiff = GetSettingsDifferent(mainSettings);
+            Dictionary<string, string> notExistSettings = settingsDiff.ToDictionary(o => o.Key, o => o.Value);
             var doc = XDocument.Load(PathToFileTwo);
             if (doc.Root != null)
                 foreach (var xElement in doc.Root.Elements())
@@ -212,6 +194,31 @@ namespace ConfigComparer
             _settings2 = GetSettingsDict(doc);
             FillSettingsGrids(dataGridViewSettings2, dataGridViewRepeatedSettings2, _settings2);
         }
+
+        private Dictionary<string, string> GetSettingsDifferent(Dictionary<string, string> mainSettings)
+        {
+            var settingsDiff = new Dictionary<string, string>();
+            foreach (var setting in mainSettings)
+            {
+                if (_settings2.MainSettings.ContainsKey(setting.Key))
+                {
+                    string value;
+                    if (_settings2.MainSettings.TryGetValue(setting.Key, out value))
+                    {
+                        if (value != setting.Value)
+                        {
+                            settingsDiff.Add(setting.Key, setting.Value);
+                        }
+                    }
+                }
+                else
+                {
+                    settingsDiff.Add(setting.Key, setting.Value);
+                }
+            }
+            return settingsDiff;
+        }
+
         private struct Settings
         {
             public Dictionary<string, string> MainSettings;
