@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -103,6 +104,7 @@
             this.dataGridViewSettings1.Name = "dataGridViewSettings1";
             this.dataGridViewSettings1.Size = new System.Drawing.Size(580, 642);
             this.dataGridViewSettings1.TabIndex = 1;
+            this.dataGridViewSettings1.DefaultCellStyle = dataGridViewCellStyle1;
             // 
             // Column1
             // 
@@ -141,6 +143,7 @@
             this.dataGridViewRepeatedSettings1.Name = "dataGridViewRepeatedSettings1";
             this.dataGridViewRepeatedSettings1.Size = new System.Drawing.Size(580, 642);
             this.dataGridViewRepeatedSettings1.TabIndex = 2;
+            this.dataGridViewRepeatedSettings1.DefaultCellStyle = dataGridViewCellStyle1;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -200,6 +203,14 @@
             this.dataGridViewSettings2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4});
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.ControlLight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewSettings2.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewSettings2.Location = new System.Drawing.Point(6, 6);
             this.dataGridViewSettings2.Name = "dataGridViewSettings2";
             this.dataGridViewSettings2.Size = new System.Drawing.Size(580, 642);
@@ -242,6 +253,7 @@
             this.dataGridViewRepeatedSettings2.Name = "dataGridViewRepeatedSettings2";
             this.dataGridViewRepeatedSettings2.Size = new System.Drawing.Size(580, 642);
             this.dataGridViewRepeatedSettings2.TabIndex = 2;
+            this.dataGridViewRepeatedSettings2.DefaultCellStyle = dataGridViewCellStyle1;
             // 
             // dataGridViewTextBoxColumn5
             // 
