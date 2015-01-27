@@ -130,7 +130,6 @@ namespace ConfigComparer
                     cell.Style.BackColor = Color.White;
                 }
             }
-            //gridForSettings.Rows[0].Cells[0].Style.BackColor = Color.Aquamarine;
         }
 
         private void selectSecondSettingsButton_Click(object sender, EventArgs e)
@@ -292,6 +291,21 @@ namespace ConfigComparer
                     foreach (DataGridViewCell cell in row.Cells)
                     {
                         cell.Style.BackColor = Color.Aquamarine;
+                    }
+                }
+            }
+            var diffSettingsReverse =
+                GetSettingsDifferent(_settings2.MainSettings, _settings1.MainSettings)
+                    .Where(sett => !_settings1.MainSettings.ContainsKey(sett.Key))
+                    .ToDictionary(sett => sett.Key, sett => sett.Value);
+            foreach (DataGridViewRow row in dataGridViewSettings2.Rows)
+            {
+                var settingName = row.Cells[0].Value == null ? string.Empty : row.Cells[0].Value.ToString();
+                if (diffSettingsReverse.ContainsKey(settingName))
+                {
+                    foreach (DataGridViewCell cell in row.Cells)
+                    {
+                        cell.Style.BackColor = Color.Red;
                     }
                 }
             }
