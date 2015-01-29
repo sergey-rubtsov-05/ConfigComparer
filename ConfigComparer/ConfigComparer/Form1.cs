@@ -38,6 +38,9 @@ namespace ConfigComparer
         private Settings _settings2;
 
         private readonly List<string> _untouchableSettings;
+        private readonly Color _notExistColor = Color.Red;
+        private readonly Color _changedColor = Color.Aquamarine;
+        private readonly Color _notChangedColor = Color.White;
 
         public Form1()
         {
@@ -283,16 +286,19 @@ namespace ConfigComparer
         private void highlightDifferentSettingsButton_Click(object sender, EventArgs e)
         {
             var diffSettings = GetSettingsDifferent(_settings1.MainSettings, _settings2.MainSettings);
+            var diffSettingsNotExist =
+                diffSettings.Where(setting => !_settings2.MainSettings.ContainsKey(setting.Key))
+                    .ToDictionary(setting => setting.Key, setting => setting.Value);
             foreach (DataGridViewRow row in dataGridViewSettings1.Rows)
             {
+                row.Colored(_notChangedColor);
                 var settingName = row.Cells[0].Value == null ? string.Empty : row.Cells[0].Value.ToString();
                 if (diffSettings.ContainsKey(settingName))
                 {
-                    foreach (DataGridViewCell cell in row.Cells)
-                    {
-                        cell.Style.BackColor = Color.Aquamarine;
-                    }
+                    row.Colored(_changedColor);
                 }
+                if (diffSettingsNotExist.ContainsKey(settingName))
+                    row.Colored(_notExistColor);
             }
             var diffSettingsReverse =
                 GetSettingsDifferent(_settings2.MainSettings, _settings1.MainSettings)
@@ -303,11 +309,19 @@ namespace ConfigComparer
                 var settingName = row.Cells[0].Value == null ? string.Empty : row.Cells[0].Value.ToString();
                 if (diffSettingsReverse.ContainsKey(settingName))
                 {
-                    foreach (DataGridViewCell cell in row.Cells)
-                    {
-                        cell.Style.BackColor = Color.Red;
-                    }
+                    row.Colored(_notExistColor);
                 }
+            }
+        }
+    }
+
+    public static class FuturedClass
+    {
+        public static void Colored(this DataGridViewRow row, Color color)
+        {
+            foreach (DataGridViewCell cell in row.Cells)
+            {
+                cell.Style.BackColor = color;
             }
         }
     }
