@@ -20,7 +20,7 @@
             <Button Content="Выбрать..." HorizontalAlignment="Left" Margin="5" Click="FirstFileSelectButton_Click" />
             <Label x:Name="FirstFilePathLabel" Content="Путь к выбраному файлу" Foreground="#FF0023FF" />
         </StackPanel>
-        <DataGrid Grid.Column="0" Grid.Row="1" Margin="5" x:Name="FirstDataGrid" />
+        <DataGrid Grid.Column="0" Grid.Row="1" Margin="5" x:Name="FirstDataGrid" LoadingRow="DataGrid_LoadingRow" />
         <StackPanel Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" VerticalAlignment="Center">
             <Button Content="=" Margin="5" Width="25" Click="CompareButton_Click" />
             <Button Content=">>" Margin="5" Width="25" />
@@ -29,6 +29,6 @@
             <Button Content="Выбрать..." HorizontalAlignment="Left" Margin="5" Click="SecondFileSelectButton_Click" />
             <Label x:Name="SecondFilePathLabel" Content="Путь к выбраному файлу" Foreground="#FF0023FF" />
         </StackPanel>
-        <DataGrid Grid.Column="2" Grid.Row="1" Margin="5" x:Name="SecondDataGrid" />
+        <DataGrid Grid.Column="2" Grid.Row="1" Margin="5" x:Name="SecondDataGrid" LoadingRow="DataGrid_LoadingRow" />
     </Grid>
 </Window>
