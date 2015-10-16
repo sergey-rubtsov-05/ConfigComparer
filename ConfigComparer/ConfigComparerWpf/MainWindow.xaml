@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ConfigComparerWpf"
         mc:Ignorable="d"
-        Title="MainWindow" Height="334.427" Width="550.953">
+        Title="MainWindow" Height="500" Width="1000">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
@@ -16,13 +16,19 @@
             <RowDefinition Height="Auto" />
             <RowDefinition />
         </Grid.RowDefinitions>
-        <Button Grid.Column="0" Grid.Row="0" Content="Выбрать..." HorizontalAlignment="Left" Margin="5" />
-        <DataGrid Grid.Column="0" Grid.Row="1" Margin="5" />
+        <StackPanel Grid.Column="0" Grid.Row="0" Orientation="Horizontal" >
+            <Button Content="Выбрать..." HorizontalAlignment="Left" Margin="5" Click="FirstFileSelectButton_Click" />
+            <Label x:Name="FirstFilePathLabel" Content="Путь к выбраному файлу" Foreground="#FF0023FF" />
+        </StackPanel>
+        <DataGrid Grid.Column="0" Grid.Row="1" Margin="5" x:Name="FirstDataGrid" />
         <StackPanel Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" VerticalAlignment="Center">
-            <Button Content="=" Margin="5" Width="25" />
+            <Button Content="=" Margin="5" Width="25" Click="CompareButton_Click" />
             <Button Content=">>" Margin="5" Width="25" />
         </StackPanel>
-        <Button Grid.Column="2" Grid.Row="0" Content="Выбрать..." HorizontalAlignment="Left" Margin="5" />
-        <DataGrid Grid.Column="2" Grid.Row="1" Margin="5" />
+        <StackPanel Grid.Column="2" Grid.Row="0" Orientation="Horizontal">
+            <Button Content="Выбрать..." HorizontalAlignment="Left" Margin="5" Click="SecondFileSelectButton_Click" />
+            <Label x:Name="SecondFilePathLabel" Content="Путь к выбраному файлу" Foreground="#FF0023FF" />
+        </StackPanel>
+        <DataGrid Grid.Column="2" Grid.Row="1" Margin="5" x:Name="SecondDataGrid" />
     </Grid>
 </Window>
