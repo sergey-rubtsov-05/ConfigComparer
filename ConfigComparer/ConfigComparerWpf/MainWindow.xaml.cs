@@ -65,6 +65,7 @@ namespace ConfigComparerWpf
 
         private void FillSettingsGrid(DataGrid dataGrid, List<KeyValuePair<string, string>> settings)
         {
+            dataGrid.ItemsSource = null;
             dataGrid.ItemsSource = settings;
         }
 
@@ -158,6 +159,11 @@ namespace ConfigComparerWpf
                 }
                 comparedSettings.Add(new KeyValuePair<string, string>(setting.Key,
                     secondSettings.GetValueByKey(setting.Key)));
+            }
+            foreach (var secondSetting in secondSettings)
+            {
+                if (!comparedSettings.ContainsKey(secondSetting.Key))
+                    comparedSettings.Add(secondSetting);
             }
             FillSettingsGrid(FirstDataGrid, _firstSettings);
             FillSettingsGrid(SecondDataGrid, comparedSettings);

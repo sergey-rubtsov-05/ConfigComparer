@@ -22,7 +22,7 @@
         </StackPanel>
         <DataGrid Grid.Column="0" Grid.Row="1" Margin="5" x:Name="FirstDataGrid" LoadingRow="DataGrid_LoadingRow" />
         <StackPanel Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" VerticalAlignment="Center">
-            <Button Content="=" Margin="5" Width="25" Click="CompareButton_Click" />
+            <Button Content="=>" Margin="5" Width="25" Click="CompareButton_Click" />
             <Button Content=">>" Margin="5" Width="25" />
         </StackPanel>
         <StackPanel Grid.Column="2" Grid.Row="0" Orientation="Horizontal">
