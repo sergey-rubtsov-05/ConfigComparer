@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConfigComparer", "ConfigComparer\ConfigComparer.csproj", "{FD6B8EDD-CD6B-46D6-ACD1-E4472FEABA44}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConfigComparerWpf", "ConfigComparerWpf\ConfigComparerWpf.csproj", "{CD6D6239-0E8A-4627-99DA-A95EA632E3C3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConfigComparerWpf.Controls", "ConfigComparerWpf.Controls\ConfigComparerWpf.Controls.csproj", "{62E4999B-A721-47BB-8181-8CA2450DF6CB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{CD6D6239-0E8A-4627-99DA-A95EA632E3C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CD6D6239-0E8A-4627-99DA-A95EA632E3C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CD6D6239-0E8A-4627-99DA-A95EA632E3C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62E4999B-A721-47BB-8181-8CA2450DF6CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62E4999B-A721-47BB-8181-8CA2450DF6CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62E4999B-A721-47BB-8181-8CA2450DF6CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62E4999B-A721-47BB-8181-8CA2450DF6CB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

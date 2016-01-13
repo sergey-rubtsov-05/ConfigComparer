@@ -4,9 +4,15 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ConfigComparerWpf"
+        xmlns:scroll="clr-namespace:ConfigComparerWpf.Controls;assembly=ConfigComparerWpf.Controls"
         mc:Ignorable="d"
         Title="MainWindow" Height="500" Width="1000">
     <Grid>
+        <Grid.Resources>
+            <Style TargetType="ScrollViewer">
+                <Setter Property="scroll:ScrollSynchronizer.ScrollGroup" Value="Group1"></Setter>
+            </Style>
+        </Grid.Resources>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
             <ColumnDefinition Width="Auto" />
@@ -23,7 +29,7 @@
         <DataGrid Grid.Column="0" Grid.Row="1" Margin="5" x:Name="FirstDataGrid" LoadingRow="DataGrid_LoadingRow" />
         <StackPanel Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" VerticalAlignment="Center">
             <Button Content="=>" Margin="5" Width="25" Click="CompareButton_Click" />
-            <Button Content=">>" Margin="5" Width="25" />
+            <Button Content=">>" Margin="5" Width="25" IsEnabled="False" />
         </StackPanel>
         <StackPanel Grid.Column="2" Grid.Row="0" Orientation="Horizontal">
             <Button Content="Выбрать..." HorizontalAlignment="Left" Margin="5" Click="SecondFileSelectButton_Click" />

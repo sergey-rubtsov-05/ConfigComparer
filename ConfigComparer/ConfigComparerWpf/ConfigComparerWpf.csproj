@@ -96,9 +96,21 @@
     <None Include="TestSettings\App.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="TestSettings\Web_left_ttk.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="TestSettings\Web_right_build.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ConfigComparerWpf.Controls\ConfigComparerWpf.Controls.csproj">
+      <Project>{62e4999b-a721-47bb-8181-8ca2450df6cb}</Project>
+      <Name>ConfigComparerWpf.Controls</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
