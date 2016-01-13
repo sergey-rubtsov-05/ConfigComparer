@@ -180,6 +180,10 @@ namespace ConfigComparerWpf
             {
                 e.Row.Background = new SolidColorBrush(Colors.Aquamarine);
             }
+            else
+            {
+                e.Row.Background = new SolidColorBrush(Colors.White);
+            }
         }
     }
 
