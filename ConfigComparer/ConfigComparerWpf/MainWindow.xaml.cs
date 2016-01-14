@@ -174,7 +174,7 @@ namespace ConfigComparerWpf
             var row = (KeyValuePair<string, string>) e.Row.DataContext;
             if (_missingSettings.Contains(row.Key) || string.IsNullOrEmpty(row.Key))
             {
-                e.Row.Background = new SolidColorBrush(Colors.Red);
+                e.Row.Background = new SolidColorBrush(Colors.OrangeRed);
             }
             else if (_differentSettings.Contains(row.Key))
             {
